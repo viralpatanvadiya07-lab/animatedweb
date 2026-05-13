@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #050816;
+  --secondary: #0F172A;
+  --neon-blue: #38BDF8;
+  --purple: #8B5CF6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--primary);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.glass-morphism {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon-border {
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.purple-glow {
+  box-shadow: 0 0 20px var(--purple);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #38BDF8, #8B5CF6);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38BDF8;
+  box-shadow: 0 0 10px #38BDF8;
+}
+
+/* 
+  Allow mouse events to pass through the transparent foreground 
+  so the Spline 3D background can track the cursor.
+*/
+#foreground-content, 
+main, 
+section, 
+footer {
+  pointer-events: none;
+}
+
+/* Re-enable pointer events for all interactive content containers */
+#foreground-content nav,
+#foreground-content .z-10,
+#foreground-content .glass-morphism,
+#foreground-content .max-w-6xl,
+#foreground-content .max-w-7xl,
+#foreground-content button,
+#foreground-content a,
+#foreground-content input,
+#foreground-content textarea,
+#spline-background {
+  pointer-events: auto;
+}
